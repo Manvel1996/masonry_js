@@ -38,12 +38,12 @@ MasonryPrototype.prototype.render = function (containerClassName, settings) {
       const minIndex = heightColumns.indexOf(min);
 
       child.childNode.style.position = "absolute";
+      child.childNode.style.width = `${child.currentWidth}px`;
+      child.childNode.style.height = `${child.currentHeight}px`;
       child.childNode.style.top = `${heightColumns[minIndex]}px`;
       child.childNode.style.left = `${
         minIndex * columnWidth + gap * minIndex
       }px`;
-      child.childNode.style.width = `${child.currentWidth}px`;
-      child.childNode.style.height = `${child.currentHeight}px`;
 
       heightColumns[minIndex] += child.currentHeight + gap;
     });
@@ -62,7 +62,7 @@ const Masonry = new MasonryPrototype();
 
 window.addEventListener("DOMContentLoaded", () => {
   Masonry.render(".masonry", {
-    columnWidth: 600,
+    columnWidth: 300,
     autoResize: true,
     gap: 5,
   });
